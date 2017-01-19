@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="voice-mail-notes">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Voicemail notes for today</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale= 1">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
+	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="styles/site.css">
+	<link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	
+</head>
+<body>
+<div id="topBar">
+	<div class="todayDate">1/19/2017</div>
+	<a id="menu-button" title="menu">
+		<span class="ion-more"></span>
+	</a>
+	<a class="printPage" href="#" onclick="window.print(); return false;">
+		print <span class="ion-ios-printer"></span>
+	</a>
+	<div id="topFloatingMenu" style="display: none;">
+		<a id="close-floating-menu">
+			<span class="ion-ios-close"></span>
+		</a>
+		<section class="floating-menu-content">
+			<a class="colorButton" data-color="#8db8e9" style="background: rgb(141, 184, 233);"></a>
+			<a class="colorButton" data-color="#15a115" style="background: rgb(21, 161, 21);"></a>
+			<a class="colorButton" data-color="#cc2929" style="background: rgb(204, 41, 41);"></a>
+			<a class="colorButton" data-color="purple" style="background: purple;"></a>
+			<a class="colorButton" data-color="black" style="background: black;"></a>
+			<a class="colorButton" data-color="orange" style="background: orange;"></a>
+		</section>
+	</div>
+</div>
+	
+<ui-view></ui-view>
+
+<script src="/scripts/app.js"></script>
+<!-- Angular 1.5.8 -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAkNE6P7dquF-1JP8xqZlbQxS6DK7j8LkY",
+    authDomain: "angular-messages.firebaseapp.com",
+    databaseURL: "https://angular-messages.firebaseio.com",
+    // storageBucket: "angular-messages.appspot.com",
+    messagingSenderId: "835551470937"
+  };
+  firebase.initializeApp(config);
+</script>
+</body>
+</html>
