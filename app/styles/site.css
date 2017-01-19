@@ -1,0 +1,366 @@
+*, *::before, *::after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;    
+}
+
+a {
+    text-decoration:none;
+}
+
+a.printPage {
+    color: #fff;
+}
+
+html {
+    height: 100%; /* makes sure our HTML takes up 100% of the browser window */
+    font-size: 85%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans';
+    min-height: 100%;
+    position:relative;
+    background:rgb(54, 162, 54);
+}
+
+#topBar {
+    width: 100%;
+    height: 3rem;
+    position: fixed;
+    background: rgba(255,255,255,.5);
+    color: white;
+    font-weight: 700;
+    line-height: 3rem;
+    z-index: 99;
+    text-align: center;
+}
+
+.topBar-clipping {
+    background: rgb(54, 162, 54);
+    display: block;
+    position: fixed;
+    width: 2.8em;
+    height: 3em;
+    z-index: 3;
+}
+
+.todayDate {
+    display: inline-block;
+    margin-left: 1rem;
+    float: left;
+}
+
+.printPage{
+    font-size: 1.2rem;
+    float: right;
+    display: inline-block;
+    margin-right: 2em;
+}
+
+#menu-button {
+    font-size: 2rem;
+    display: inline-block;
+}
+
+#topFloatingMenu {
+    background: rgba(255,255,255,.7);
+    max-width: 694px;
+    color: rgba(0,0,0,.9);
+    display:none;
+}
+
+#close-floating-menu {
+    position: relative;
+    display: block;
+    float: right;
+    font-size: 1.7rem;
+    margin-right: .5rem;
+}
+
+.floating-menu-content {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 3em 3em;
+    line-height: 1.8em;
+}
+
+.colorButton {
+    width: 4em;
+    height: 4em;
+    background: rgba(100,100,100);
+    display: inline-block;
+    border-radius: 2em;
+}
+
+#messages {
+    box-sizing: border-box;
+    display: inline-table;
+    max-width: 700px;
+    margin-top: 3rem;
+    padding-bottom: .5em;
+    padding-right: .5em;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+.message-block {
+    display:table-row-group;
+}
+
+.message-body {
+    background: rgba(255,255,255,.32);
+    padding: .3rem;
+}
+
+.message-number {
+    color: white;
+    float: right;
+    margin-bottom: -1em;
+    padding-top: 0.8em;
+}
+
+.message-block-date, .message-block-time {
+    display: inline-block;
+}
+
+.message-block-textarea {
+    display:inline-block;
+    width: 100%;
+    text-align: center;
+    padding-top: .2rem;
+}
+
+input[name="messageDay"],input[type="time"] {
+    text-align: center;
+    background: rgba(255,255,255,.5);
+    outline:none;
+    border: none;
+    margin-top:.2rem;
+    padding-left:.2em;
+}
+
+input[name="messageDay"] {
+    font-style: italic;
+    color: rgba(0,0,0,.5);
+    text-shadow: 0 0 0px rgba(0,0,0,.2);
+}
+
+.messageTextArea {
+    width:100%;
+    min-height:5rem;
+    font-size: .95rem;
+    padding:.4rem;
+    background: rgba(255,255,255,.32);
+    resize:vertical;
+    overflow-y: visible;
+    outline: none;
+    border:none;
+    margin-top: .5rem;
+}
+
+.messageTextArea:hover,input[type="text"]:hover,input[type="time"]:hover,
+.messageTextArea:focus,input[type="text"]:focus,input[type="time"]:focus,
+.messageTextArea:active,input[type="text"]:active,input[type="time"]:active
+{
+    //outline-width: 1px;
+    //outline-style: solid;
+    //outline-color:rgba(0,0,0,.5);
+    box-shadow: inset 0 0 2px 1px rgba(255,255,255,.5);
+}
+
+
+.callBack { /* swap with ion-ios-telephone-outline to outline  */
+    position:relative;
+    right:0px;
+    font-size:2rem;
+    color: rgba(255,255,255,.3);
+}
+
+input[class="callback-number"] {
+    font-size: 1.1rem;
+    background:inherit;
+    position: absolute;
+    line-height: 1.1rem;
+    margin-left: .5rem;
+    top: .55rem;
+    padding-left: .5rem;
+    outline:none;
+    border:none;
+}
+
+.callback-number:hover,
+.callback-number:active,
+.callback-number:focus {
+    background-color: rgba(255,255,255,.1);
+    cursor: text;
+    outline-width: 1px;
+    outline-color: rgba(255,255,255,.32);
+    outline-style: solid;
+}
+
+.button-remove-message {
+    font-size: 1.5rem;
+    float: left;
+    // background: none;
+    position: absolute;
+    left: 3.3%;
+    // bottom: 5.3em;
+    margin-top: -.5em;
+    color: rgba(255,255,255,.5);
+}
+
+.button-remove-message:hover {
+    cursor: pointer;
+    color:white;
+}
+
+/* #addMessage */
+input[id="add-section"] {
+    display: block;
+    position: relative;
+    left: 1em;
+    font-family: "Ionicons";
+    width: 3rem;
+    background: rgba(255,255,255,.32);
+    border: none;
+    cursor: pointer;
+    height: 3rem;
+    border-radius: 2em;
+    margin-bottom: .5em;
+}
+
+#add-section:hover, #add-section:focus {
+    color: #fff;
+    text-shadow:
+            -1px -1px 0 #0f0,
+            1px -1px 0 #0f0,
+            -1px 1px 0 #0f0,
+            1px 1px 0 #0f0;
+    background: rgba(50,255,20,.3);
+    outline: none;
+}
+
+.ion-calendar,
+.ion-clock,
+.ion-document-text {
+    color: white;
+    font-size: 1.4rem;
+    vertical-align: -.1em;
+    margin: auto .5rem;
+}
+
+.line-break {
+    display: inline-block;
+    height: 2px;
+    width: 41%;
+    background: rgba(255,255,255,.5);
+    border-radius: 1px;
+    vertical-align: middle;
+}
+
+.note-perforation {
+    height: 0.5em;
+    color: rgb(54, 162, 54);
+    display: block;
+    line-height: .2em;
+    font-size: 3em;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    margin-top: -.2em;
+    margin-bottom: -.17em;
+}
+
+.ion-document-text {
+    line-height:0;
+    vertical-align: middle;
+}
+
+.message-anchor {
+    width: 7%;
+    display: table-cell;
+    height: 7em;
+    background: none;
+    transition: background .2s ease-in-out;
+    -webkit-transition: background .2s ease-in-out;
+    transition: background .2s ease-in-out;
+}
+
+.message-anchor:hover {
+    background: rgba(255,0,0,.4);
+    cursor: pointer;
+}
+
+.message-anchor:hover .button-remove-message {
+    color:white;
+    text-shadow:
+            -1px -1px 0 #f00,
+            1px -1px 0 #f00,
+            -1px 1px 0 #f00,
+            1px 1px 0 #f00;
+}
+
+.root {
+    display: block;
+    position: absolute;
+    width: .5em;
+    background: rgba(255,255,255,.5);
+    top: 3em;
+    left: 2.25em;
+    z-index:-1;
+}
+
+.anchor {
+    width: 1em;
+    height: .5em;
+    background: rgba(255,255,255,.5);
+    float:right;
+}
+
+@media only screen and (max-width: 550px) {
+    .printPage {
+        font-size: 1rem;
+        right: .7rem;
+    }
+    
+    .messageTextArea {
+        font-size: 1.1rem;
+    }
+    
+    .message-anchor {
+        display: -webkit-inline-box;
+        float: right;
+        height: 0px;
+        background: #f00;
+        margin-top: 1em;
+    }
+    .massage-anchor {
+        background: none;
+    }
+    
+    .root {
+        display:none;
+    }
+    
+    .button-remove-message {
+        font-size: 1.5rem;
+        color: rgba(255,255,255,.5);
+        position: relative;
+    }
+    .anchor {
+        display:none;
+    }
+    
+    input[id="add-section"] {
+        border-radius: 0 2rem 2rem 0;
+    }
+    
+    .topBar-clipping {
+        box-shadow:0 0.2em .5em rgba(0,0,0,.3);
+    }
+    #messages {
+        padding-right: 0;
+    }
+}
