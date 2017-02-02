@@ -1,11 +1,5 @@
 <div id="messages-block">
-	<div class="message-block" ng-repeat="message in messages.all" >
-		<section class="message-anchor" >
-			<div class="button-remove-message" ng-click="remove(message.noteNumber)">
-				<span class="ion-close"></span>
-			</div>
-		  <section class="anchor" ></section>
-		</section>
+	<div class="message-block" ng-repeat="message in messages.deleted" >
 		<section class="message-body">
 		 <form>
 				<div class="message-block-date">
@@ -31,7 +25,4 @@
 		</section>
 		<span class="note-perforation">. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</span>
 	</div>
-</div>
-<div class="footer" ng-controller="AddMessageCtrl">
-	<input type="submit" id="add-section" title="new blank message" ng-click="addNote()" value="&#xf218;"/>
 </div>

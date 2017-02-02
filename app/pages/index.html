@@ -2,7 +2,7 @@
 <html ng-app="voiceMailNotes">
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Voicemail notes for today</title>
+    <title ng-controller="DateCtrl">{{ today }}</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale= 1">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,800,600,700,300">
@@ -12,13 +12,16 @@
 	
 </head>
 <body>
-<div id="topBar">
-	<div class="todayDate">Today's date</div>
-	<a id="menu-button" title="menu">
-		<span class="ion-more"></span>
+<div id="topBar" ng-controller="MessagesCtrl">
+	<div class="todayDate" ng-controller="DateCtrl">notes for {{ today }}</div>
+	<a id="menu-button" ui-sref="messages" title="home">
+		<span class="ion-document"></span>
 	</a>
-	<a class="printPage" href="#" onclick="window.print(); return false;">
-		print <span class="ion-ios-printer"></span>
+	<a id="menu-button" ui-sref="deleted" title="deleted messages">
+		<span class="ion-ios-trash"></span>
+	</a>
+	<a class="printPage" onclick="window.print(); return false;">
+		Print <span class="ion-ios-print"></span>
 	</a>
 	<div id="topFloatingMenu" style="display: none;">
 		<a id="close-floating-menu">
@@ -37,9 +40,7 @@
 	
 <ui-view></ui-view>
 	
-<div class="footer" ng-controller="AddMessageCtrl">
-	<input type="submit" id="add-section" title="new blank message" ng-click="addNote()" value="&#xf218;"/>
-</div>
+
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 <script>
@@ -67,6 +68,7 @@
 <script src="/scripts/app.js"></script>
 <script src="/scripts/controllers/MessagesCtrl.js"></script>
 <script src="/scripts/controllers/AddMessageCtrl.js"></script>
+<script src="/scripts/controllers/DateCtrl.js"></script>
 <script src="/scripts/services/Message.js"></script>
 <script src="/scripts/services/DateFactory.js"></script>
 </body>

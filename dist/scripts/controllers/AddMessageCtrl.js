@@ -1,10 +1,9 @@
 (function() {
 	function AddMessageCtrl($document, $scope,Message) {
+		$scope.totalActiveMessages = 0;
 		
 		$scope.addNote = function() {
 			Message.add();
-			$scope.totalActiveMessages = Message.totalActiveMessages;
-			console.log($scope.totalActiveMessages);
 		}
 	}
 	

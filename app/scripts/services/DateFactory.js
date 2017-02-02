@@ -1,13 +1,17 @@
 (function() {
 	function DateFactory() {
-			
+		
 			function formatDate(dateObject) {
-				return (dateObject.getMonth()+1 + "/" + dateObject.getDate() + "/" + dateObject.getFullYear().toString());
+				return ( dateObject.getMonth()+1 + "/" + dateObject.getDate() + "/" + dateObject.getFullYear().toString()) ;
 			};
 		
 			return {
+				today: function() {
+					return formatDate(new Date() );
+				},
 				parseDate: function(input) {
-					var weekdayIndex = null, returnString = null;
+					var weekdayIndex = null;
+					var	returnString = "";
 					var dateToday = new Date();
 					var todayIndex = dateToday.getDay(); // get weekday index for today
 
@@ -26,7 +30,6 @@
 						// dealing with past dates, if the date input is greater than todays date, subtract a year.
 						pastDate = new Date(dateToday.getFullYear(), month, day );
 						if ( pastDate > dateToday ) {
-							console.log(typeof pastDate);
 							pastDate.setYear(pastDate.getFullYear() - 1);
 						}
 						returnString = formatDate(pastDate);

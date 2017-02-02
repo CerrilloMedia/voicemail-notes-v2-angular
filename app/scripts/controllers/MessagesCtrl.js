@@ -1,6 +1,10 @@
 (function() {
-	function MessagesCtrl($scope,Message) {
+	function MessagesCtrl($scope,$location,Message) {
 		this.all = Message.messages;
+		
+		//this.currentPath = $location.path();
+		
+		this.deleted = Message.deletedMessages;
 		
 		$scope.update = function(date, time, note, noteNumber) {
 			Message.update(date, time, note, noteNumber);
@@ -13,5 +17,5 @@
 	
 	angular
 		.module('voiceMailNotes')
-		.controller('MessagesCtrl', ['$scope','Message', MessagesCtrl]);
+		.controller('MessagesCtrl', ['$scope','$location','Message', MessagesCtrl]);
 })();

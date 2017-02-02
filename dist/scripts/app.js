@@ -12,11 +12,11 @@
                 controller: "MessagesCtrl as messages",
                 templateUrl: "/templates/message.html"
             })
-//			.state('deleted', {
-//					url: "/deleted",
-//					controller: "MessagesCtrl as delmessages",
-//					templateUrl: "/templates/message.html"
-//				})
+			.state('deleted', {
+					url: "/deleted",
+					controller: "MessagesCtrl as messages",
+					templateUrl: "/templates/deleted.html"
+				})
 			;
 	}
 	

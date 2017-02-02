@@ -29,18 +29,32 @@
 //				console.log("created note #" + emptyMessageObject.noteNumber);
 //				console.log(this.messages);
 			},			
-			remove: function(noteNumber) {
-				this.totalActiveMessages -= 1;
+			remove: function(noteNumber, args) {
 				
+				//////////////////
 //				@ return true if the array object finds the property number that matching noteNumber
 				function matchNoteIndex(object) {
 					return object.noteNumber == noteNumber;					
 				};
-				
-//				@ find the first index where argument returns true, should only match once
+//				Use .findIndex passing each message object into matchNoteIndex (above)
 				var index = this.messages.findIndex(matchNoteIndex);
+				//////////////////
 				
-				this.messages.splice(index, 1);
+//				Move message to deletedMessages object if any note has been updated
+				if (this.messages[index].note == "") {
+					// if note is empty, delete
+					this.messages.splice(index, 1);
+				} else {
+					// else move it to deletedMessages array
+					this.deletedMessages.push(this.messages.splice(index, 1)[0]);
+					console.log("note was moved to trash");
+				}
+				
+				this.totalActiveMessages -= 1;
+				
+//				TESTING DELETED MESSAGES ARRAY
+//				console.log(this.deletedMessages.length);
+//				console.log(this.deletedMessages);
 			},
 			update: function(date, time, note, noteNumber) {
 				var callbackNumber = "null" // doSomethingWith(note) & return an callback number;
@@ -59,14 +73,15 @@
 				function matchNoteIndex(object) {
 					return object.noteNumber == noteNumber;					
 				};
-//				@ find the first index where argument returns true
 				var index = this.messages.findIndex(matchNoteIndex);
 				
-				this.messages[index].date = DateFactory.parseDate(date);
-				this.messages[index].time = time;
-				this.messages[index].note = note;
+				this.messages[index].date = DateFactory.parseDate(date) || "";
+				this.messages[index].time = time || "";
+				this.messages[index].note = note || "";
+				
 			},
-			totalActiveMessages: null
+			totalActiveMessages: null,
+			deletedMessages: []
 		}
 	}
 	
