@@ -1,4 +1,4 @@
-# voicemail-notes-v2-angular
+## Voicemail Notes v2
 
 ### utilizing Javascript, AngularJS and NodeJS.
 
